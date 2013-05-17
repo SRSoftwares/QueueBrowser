@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>run</actionName>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-Dlogback.configurationFile=config\logconfiguration.xml -classpath %classpath com.queuebrowser.views.LoginDialog</exec.args>
+                <exec.executable>java</exec.executable>
+                <exec.workingdir>D:\Sumit Roy's Stuff\Java Projects\NetBeans Java Projects\QueueBrowser</exec.workingdir>
+            </properties>
+        </action>
+        <action>
+            <actionName>debug</actionName>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -Dlogback.configurationFile=config\logconfiguration.xml -classpath %classpath com.queuebrowser.views.LoginDialog</exec.args>
+                <exec.executable>java</exec.executable>
+                <jpda.listen>true</jpda.listen>
+                <exec.workingdir>D:\Sumit Roy's Stuff\Java Projects\NetBeans Java Projects\QueueBrowser</exec.workingdir>
+            </properties>
+        </action>
+        <action>
+            <actionName>profile</actionName>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>${profiler.args} -Dlogback.configurationFile=config\logconfiguration.xml -classpath %classpath com.queuebrowser.views.LoginDialog</exec.args>
+                <exec.executable>${profiler.java}</exec.executable>
+                <exec.workingdir>D:\Sumit Roy's Stuff\Java Projects\NetBeans Java Projects\QueueBrowser</exec.workingdir>
+            </properties>
+        </action>
+    </actions>
